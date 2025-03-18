@@ -1,0 +1,219 @@
+ .modal-dialog {
+  max-width: 500px;
+  width: 100%;
+  
+} 
+
+ body {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+}
+h5{
+  font-family: 'Sitka',serif;
+  font-size: 20px;
+}
+.chatbox {
+  height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+} 
+ .message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 0px;
+  max-width: 80%;
+}
+.bot {
+  background: #e9ecef;
+  align-self: flex-start;
+}
+.user {
+  background: #000;
+  color: #fff;
+  align-self: flex-end;
+}
+.square-corners {
+  border-radius: 0 !important;
+} 
+
+ .fixed-chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+} 
+.modal-dialog {
+  max-width: 500px;
+  width: 100%;
+} 
+ body {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+}
+.chatbox {
+  height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 0px;
+  max-width: 80%;
+} 
+ .bot {
+  background: #e9ecef;
+  align-self: flex-start;
+}
+.user {
+  background: #000;
+  color: #fff;
+  align-self: flex-end;
+}
+.square-corners {
+  border-radius: 0 !important;
+} 
+
+/* Chatbot circular button */
+ .chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px; 
+  height: 60px; 
+  background-color: #000; 
+  border-radius: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  z-index: 1000; 
+} 
+#chatbox {
+  height: 300px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 20px; /* Add margin at the bottom to prevent overlap */
+}
+
+/* Adjust the size of the textarea */
+textarea {
+  width: 100%; /* You can adjust the width percentage to make it smaller or larger */
+  height: 50px; /* Adjust the height to your preference */
+  resize: none; /* Prevent the user from resizing */
+  pointer-events: auto; /* Ensure it's clickable */
+  font-size: 14px; /* Optional: smaller text size */
+}
+
+
+/* Adjust input area to add space between the textarea and button */
+.input-area {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds space between the textarea and button */
+}
+
+/* Popup content */
+.chat-popup {
+  position: relative;
+  bottom: 20px;
+  right: -400px; 
+  width: 350px;
+  height: 450px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1001;
+}
+
+/* Hover effect for the button */
+.chatbot-button:hover {
+  transform: scale(1.1); 
+  background-color: #333; 
+}
+
+/* Image inside the button */
+ .chat-icon {
+  width: 30px; 
+  height: 30px;
+  object-fit: contain; 
+} 
+
+/* Chatbot popup styling */
+.chat-popup {
+  position: relative;
+  align-items: right;
+  bottom: 20px;
+  right: -400px; 
+  width: 350px;
+  height: 450px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1001;
+}
+
+/* Popup header styling */
+.popup-header {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.popup-header h5 {
+  margin: 0;
+  font-size: 18px;
+  font-family: 'Sitka', serif;
+}
+
+.close-popup-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* When chat popup is visible */
+.chat-popup.show {
+  right: 20px; /* Slide-in position */
+}
+
+/* Button to trigger popup */
+.chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  /* transition: transform 0.3s ease, background-color 0.3s ease; */
+}
+
+.chatbot-button:hover {
+  /* transform: scale(1.1); */
+  /* background-color: #333; */
+}
+
+.chat-icon {
+  font-size: 24px;
+  color: #fff;
+}

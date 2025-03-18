@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Header with Lora Font</title>
+  <!-- Bootstrap 5 CDN Link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="giving.css">
+
+  <!-- Google Font: Lora and Sitka -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Sitka&display=swap" rel="stylesheet">
+
+  <!-- Flag Icon CSS Library for Flags -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icons.min.css">
+  
+  <!-- Bootstrap Icons CDN Link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+
+  <!-- Gray Box at the Beginning of the Page -->
+  <div class="gray-box"> </div>
+
+  <!-- Bootstrap Header Example with white background navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Buy on Sale!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Shop Jewelry <span class="triangle-down" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="jewelryDropdown">
+              <li><a class="dropdown-item" href="#">Rings</a></li>
+              <li><a class="dropdown-item" href="#">Earrings</a></li>
+              <li><a class="dropdown-item" href="#">Necklaces</a></li>
+              <li><a class="dropdown-item" href="#">Bracelets & Bangles</a></li>
+              <li><a class="dropdown-item" href="#">Birthstone Jewelry</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Who We Are <span class="triangle-down" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"></span></a>
+          </li>
+
+          <!-- Search Icon Triggering Search Modal -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                class="bi bi-search"></i></a> <!-- Search Icon -->
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-bag"></i></a> <!-- Shopping Cart (Bag) Icon -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-person"></i></a> <!-- User Icon -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><br><br><br><br><br>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-between align-items-center">
+        <!-- Left side: Shop in CAD / USD and Contact info -->
+        <div class="footer-left d-flex align-items-center">
+          <ul class="list-unstyled m-0">
+            <li><a href="#">Shop in CAD <span class="flag-icon flag-icon-ca"></span></a></li>
+            <li><a href="#">Shop in USD <span class="flag-icon flag-icon-us"></span></a></li>
+            <li><a href="mailto:hello@irresistiblyminimal.com">Contact: hello@irresistiblyminimal.com</a></li>
+            <li><a href="#">Policies: What you should know.com</a></li>
+          </ul>
+        </div>
+
+        <!-- Right side: Copyright text -->
+        <div class="footer-right text-end">
+          <p>&copy; 2024 Irresistibly Minimal</p>
+
+          <!-- Payment Methods Section -->
+          <div class="payment-methods">
+            <div class="payment-icon">
+              <img src="images/image1.png" alt="American Express" style="width: 49px; height: 31.81px;">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image2.png" alt="Apple Pay">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image3.png" alt="Diners Club">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image4.png" alt="Discover">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image5.png" alt="Meta">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image6.png" alt="Google Pay">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image7.png" alt="MasterCard">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image8.png" alt="PayPal">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image9.png" alt="Visa">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image10.png" alt="venmo">
+            </div>
+            <div class="payment-icon">
+              <img src="images/image11.png" alt="Shop pay">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Button with "Giving Rewards" text and shopping bag-heart icon -->
+  <a href="#" id="floatingButton" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#rewardModal" aria-label="Giving Rewards">
+  <i class="bi bi-bag-heart"></i> Giving Rewards </a>
+
+  <!-- Modal for the form -->
+
+  <div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+      <!-- <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <!-- <div class="modal-body"> -->
+      <!-- Form inside the modal -->
+      <form>
+        <div class="popup">
+          <div class="popup-header">
+            <h1 class="welcome" style="font-size: 12px;">Welcome to</h1>
+            <h2 style="font-size: 16px;">The Irresistible Rewards!</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="popup-content">
+            <h3 style="font-size: 16px;">Become a member</h3>
+            <p style="font-size: 16px;">With more ways to unlock exciting perks, this is your all-access pass to
+              exclusive rewards.</p>
+            <button class="join-btn">Join now</button>
+            <p class="signin-text" style="font-size: 16px;">Already have an account? <a href="#">Sign in</a></p>
+          </div>
+          <div class="referrals">
+            <div class="icon-text">
+              <!-- <i class="fas fa-money-bill-wave"></i> -->
+              <span class="money-leaf-icon"></span>
+
+              <h3 style="font-size: 16px;">Referrals</h3>
+              <p style="font-size: 16px; color: gray;">Give your friends a reward and claim your own when they join!</p>
+              <p style="font-size: 16px; text-align: left; ">They get <br>$25 off coupon</p>
+              <p style="font-size: 16px; text-align: left;">You get <br>$30 off coupon</p>
+            </div>
+          </div>
+
+          <div class="giving-points">
+            <h3 style="font-size: 16px; color: black;">Giving Points</h3>
+            <p style="font-size: 16px; color: gray;">Earn more Giving Points for different actions, and turn those Giving Points into awesome rewards!</p>
+              <div class="list-item">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-hand-holding-heart list-icon"></i>
+                    </a>
+                    <span class="list-text">Ways to earn</span>
+                    <span class="arrow" onclick="toggleForm()">➔</span>
+                    <div class="hidden-form" id="hiddenForm">
+                      <h3>Second Form</h3>
+                      <label for="input">Enter something:</label>
+                      <input type="text" id="input" placeholder="Type here...">
+                      <button>Submit</button>
+                    </div>
+                  </div>
+                <a href="earn.html">
+                <i class="fas fa-chevron-right list-arrow"></i>
+            </div>
+            <!-- Ways to Redeem -->
+        <div class="list-item">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-gift list-icon"></i>
+                <span class="list-text">Ways to redeem</span>
+            </div>
+            <i class="fas fa-chevron-right list-arrow"></i>
+        </div>
+    </div>
+
+          </div>
+
+        </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Optional JavaScript to clear search bar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add event listeners to the arrow icons for navigation
+      document.querySelectorAll('.arrow-icon').forEach(function (arrow) {
+        arrow.addEventListener('click', function () {
+          const currentForm = this.closest('.form-section');
+          let nextForm = currentForm.nextElementSibling;
+
+          // Check if the next form exists and is a form-section
+          while (nextForm && !nextForm.classList.contains('form-section')) {
+            nextForm = nextForm.nextElementSibling;
+          }
+
+          if (nextForm) {
+            // Hide current form and show the next one
+            currentForm.style.display = 'none';
+            nextForm.style.display = 'block';
+          } else {
+            // If no next form exists, do not navigate
+            console.log('You are at the last form.');
+          }
+        });
+      });
+    });
+
+    function toggleForm() {
+    const hiddenForm = document.getElementById('hiddenForm');
+    hiddenForm.style.display = hiddenForm.style.display === 'block' ? 'none' : 'block';
+  }
+
+  
+
+    </script>
+    
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Form with Floating Button</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    /* Floating Button Styling on the Left Side */
+    #floatingButton {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 20px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #floatingButton .bi {
+      margin-right: 8px;
+    }
+
+    /* Custom Modal Positioning on the Left Side */
+    .modal-dialog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      margin: 0;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .modal-content {
+      height: 90vh;
+      overflow-y: auto;
+      border-radius: 0;
+    }
+
+    .modal-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .modal-content {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .content-box {
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Ensure footer stays at the bottom */
+    }
+
+    .heading-container {
+      background-color: #000;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: left;
+      position: relative;
+    }
+
+    .welcome {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .reward-title {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Centering the button */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px; /* Adjust to match the vertical alignment you want */
+}
+
+/* Styling for the button */
+.join-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  margin-left: 70px;
+}
+
+.join-btn:hover {
+  background-color: #333333;
+}
+
+
+    .signin-text a {
+      color: #bda20b;
+      text-decoration: none;
+    }
+
+    .signin-text a:hover {
+      text-decoration: underline;
+    }
+
+    .arrow {
+      cursor: pointer;
+      font-size: 24px;
+      color: #007BFF;
+      transition: transform 0.2s ease;
+      margin-left: 10px;
+    }
+
+    .arrow:hover {
+      transform: scale(1.2);
+    }
+
+    .hidden-form {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .row-separator {
+      margin-top: 15px;
+    }
+
+    .referrals {
+      margin-top: 20px;
+    }
+
+    .icon-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .money-leaf-icon {
+      width: 24px;
+      height: 24px;
+      background-color: green;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensure space between text and the arrow */
+  margin-bottom: 15px; /* Optional, to separate list items */
+}
+
+.list-icon {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.list-text {
+  margin-right: 10px; /* Space between text and arrow */
+}
+
+.list-arrow {
+  cursor: pointer;
+  margin-left: auto; /* Pushes the arrow to the far right */
+  font-size: 18px; /* Adjust icon size if needed */
+}
+
+
+    /* Footer Styling (Sticky to the Bottom) */
+    .footer {
+      font-size: 14px;
+      color: #555;
+      margin-top: 20px;
+      text-align: center;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-top: 1px solid #ddd;
+      position: sticky;
+      bottom: 0;
+      z-index: 10; /* Ensure the footer stays above content */
+    }
+
+    .section1 {
+    margin: 10px;
+    padding: 20px; /* Optional, to give some spacing inside the box */
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Border radius of 10px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional, adds a subtle shadow */
+  }
+
+  
+    
+  </style>
+</head>
+<body>
+
+<!-- Floating Button on Left Side -->
+<a href="#" id="floatingButton" class="btn btn-black" data-bs-toggle="modal" data-bs-target="#rewardModal" aria-label="Giving Rewards">
+  <i class="bi bi-bag-heart"></i> Giving Rewards
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="rewardModal" tabindex="-1" aria-labelledby="rewardModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- Removed the form-container div here -->
+        <div class="form-content" id="firstFormContent">
+          <!-- Heading container with black background and close button -->
+          <div class="heading-container">
+            <h1 class="welcome">Welcome to</h1><br>
+            <h2 class="reward-title" style="font-size: 20px;">The Irresistible Rewards!</h2>
+            <!-- Close Button Inside the Box -->
+            <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+          </div>
+
+          <!-- Content Box with white background and 5px radius -->
+          <div class="content-box">
+            <!-- Added Content After the Heading -->
+             <div class="section1">
+            <div class="row row-separator">
+              <h3 style="font-size: 16px;">Become a member</h3>
+            </div>
+            <div class="row row-separator">
+              <p style="font-size: 16px; color: #817d7d;">With more ways to unlock exciting perks, this is your all-access pass to exclusive rewards.</p>
+            </div>
+            <div class="row row-separator">
+              <button class="join-btn">Join now</button>
+            </div>
+            <div class="row row-separator">
+              <p class="signin-text" style="font-size: 16px;">Already have an account? <a href="#">Sign in</a></p>
+            </div>
+            </div>
+
+            <!-- Referrals Section -->
+             <div class="section1">
+            <div class="referrals">
+              <div class="icon-text">
+                <h3 style="font-size: 16px;">Referrals</h3>
+                <p style="font-size: 16px; color: gray;">Give your friends a reward and claim your own when they join!</p>
+                <p style="font-size: 16px; text-align: left;">They get <br>$25 off coupon</p>
+                <p style="font-size: 16px; text-align: left;">You get <br>$30 off coupon</p>
+              </div>
+            </div>
+          </div>
+            
+            <!-- Giving Points Section -->
+             <div class="section1">
+            <div class="giving-points">
+              <h3 style="font-size: 16px; color: black;">Giving Points</h3>
+              <p style="font-size: 16px; color: gray;">Earn more Giving Points for different actions, and turn those Giving Points into awesome rewards!</p>
+              
+              <!-- "Ways to Earn" with the arrow after it -->
+              <div class="list-item">
+                <i class="fas fa-hand-holding-heart list-icon"></i>
+                <span class="list-text">Ways to earn</span>
+                <i class="fas fa-chevron-right list-arrow" onclick="toggleToSecondForm()"></i> <!-- Updated Icon -->
+              </div>
+            </div>
+          <hr>
+
+            <!-- "Ways to Redeem" Section with Arrow to Third Form -->
+            <div class="list-item">
+              <i class="fas fa-gift list-icon"></i>
+              <span class="list-text">Ways to redeem</span>
+              <i class="fas fa-chevron-right list-arrow" onclick="toggleToThirdForm()"></i> <!-- Arrow to toggle third form -->
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- Second Form Content -->
+<div class="hidden-form" id="secondForm" style="display: none;">
+  <div class="heading-container">
+    <!-- Add the greater than (➔) icon in front of the text -->
+    <i class="fas fa-chevron-left list-arrow" onclick="goBackToFirstForm()"></i> <!-- Back Arrow to First Form -->
+    <h2 class="reward-title" style="margin-top: -20px; margin-left: 20px;">The Irresistible Rewards!</h2>
+    <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+  </div>
+  <div class="content-box">
+    <p style="text-align: left; font-weight: bold;"> Ways to earn </p>
+
+    <div class="section1">
+      <ul style="list-style: none; padding: 0; text-align: left;">
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-gift list-icon"></i>
+              <span class="list-text" style="margin-left: 20px; font-size: 15px;">Sign Up <br> 25 Giving Points </span>
+              <hr>         
+
+        </li>
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-gift list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;">Place an order <br> 10 Giving Points for every $1 spent </span>    
+
+        </li>
+        <li style="display: flex; align-items: center;">
+          <i class="fas fa-gift list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;">Celebrate a birthday <br> 200 Giving Points </span>    
+
+        </li>
+      </ul>
+      <div class="likebutton" style="background-color: #ddd; border-radius: 5px; height: 50px;  ">
+        <p style="margin-top: 30px;"> Join now for free to start earning </p>
+      </div>
+      <div class="row row-separator">
+        <button class="join-btn">Join now</button>
+      </div>
+      <div class="row row-separator">
+        <p class="signin-text" style="font-size: 16px;">Already have an account? <a href="#">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+       <!-- Third Form Content -->
+<div class="hidden-form" id="thirdForm" style="display: none;">
+  <div class="heading-container">
+    <!-- Back Arrow -->
+    <i class="fas fa-chevron-left list-arrow" onclick="goBackToFirstForm()"></i>
+    <h2 class="reward-title" style="margin-top: -20px; margin-left: 20px;">The Irresistible Rewards!</h2>
+    <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+  </div>
+  <div class="content-box">
+    <p style="text-align: left; font-weight: bold;"> Ways to earn </p>
+
+    <div class="section1">
+      <ul style="list-style: none; padding: 0; text-align: left;">
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-hand-holding-heart list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;"> $10 off coupon <br> 500 Giving Points </span>
+              <hr> 
+
+        </li>
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-hand-holding-heart list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;"> 15% off coupon <br> 1500 Giving Points </span>    
+
+        </li>
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-hand-holding-heart list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;"> $20 off coupon <br> 2500 Giving Points </span>    
+
+        </li>
+
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-hand-holding-heart list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;"> 25% off coupon <br> 3000 Giving Points </span>    
+
+        </li>
+
+        <li style="display: flex; align-items: center; margin-bottom: 20px;">
+          <i class="fas fa-hand-holding-heart list-icon"></i>
+          <span class="list-text" style="margin-left: 20px; font-size: 15px;"> 30% off coupon <br> 6000 Giving Points </span>    
+
+        </li>
+
+      </ul>
+      
+      <div class="row row-separator" style="position: sticky;
+">
+        <button class="join-btn">Join now</button>
+      </div>
+      <div class="row row-separator">
+        <p class="signin-text" style="font-size: 16px; position: sticky;">Already have an account? <a href="#">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        
+        <!-- Footer, shown only in the first form -->
+        <div class="footer" id="footer">
+          We reward with Smile
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  function toggleToSecondForm() {
+    const firstFormContent = document.getElementById('firstFormContent');
+    const secondForm = document.getElementById('secondForm');
+    const footer = document.getElementById('footer');
+    
+    firstFormContent.style.display = 'none';  // Hide the first form content
+    secondForm.style.display = 'block';       // Show the second form
+    footer.style.display = 'none';            // Hide the footer
+  }
+
+  function toggleToThirdForm() {
+    const secondForm = document.getElementById('secondForm');
+    const thirdForm = document.getElementById('thirdForm');
+    const footer = document.getElementById('footer');
+    
+    firstFormContent.style.display = 'none';  // Hide the first form content
+
+    secondForm.style.display = 'none';       // Hide the second form
+    thirdForm.style.display = 'block';       // Show the third form
+    footer.style.display = 'none';            // Hide the footer
+  }
+
+  function goBackToFirstForm() {
+    const firstFormContent = document.getElementById('firstFormContent');
+    const secondForm = document.getElementById('secondForm');
+    const thirdForm = document.getElementById('thirdForm');
+    const footer = document.getElementById('footer');
+    
+    firstFormContent.style.display = 'block'; // Show the first form
+    secondForm.style.display = 'none';        // Hide the second form
+    thirdForm.style.display = 'none';         // Hide the third form
+    footer.style.display = 'block';           // Show the footer
+  }
+</script>
+
+</body>
+</html>
