@@ -1,0 +1,95 @@
+body {
+    font-family: 'Lora', serif;
+    font-size: 16px; 
+  }
+  
+  
+  
+  
+  .reset-container {
+    max-width: 350px;
+    margin: auto;
+  }
+  
+   
+   .reset-container::after {
+    content: '';                         
+    display: block;                      
+    width: 60px;                         
+    height: 2px;                         
+    background-color: #000;              
+    margin: 10px auto 0;                 
+    height: 0.5px;  
+  }
+  .hr-line::after {
+    content: '';                         
+    display: block;                      
+    width: 60px;                         
+    height: 2px;                         
+    background-color: #000;              
+    margin: 10px auto 0;                 
+    height: 0.5px;  
+  }
+  
+  
+  h2 {
+    font-family: 'Sitka', serif;
+    font-size: 24px; 
+  }
+  
+  
+  form .form-control {
+    border-radius: 0; 
+    height: 40px; 
+    background-color: #F7F7F7; 
+    color: #868686; 
+  }
+  
+  form .form-control::placeholder {
+    color: #868686; 
+  }
+  
+  form .form-control:focus {
+    border-color: black; 
+    box-shadow: none;
+  }
+  
+  
+  button.btn {
+    border-radius: 0;
+    height: 40px; 
+    background-color: #1C1D1D; 
+    color: #FFFFFF; 
+    border: none;
+  }
+  
+  button.btn:hover {
+    background-color: #333333; 
+  }
+  
+  
+  .additional-links a {
+    color: black;
+    font-size: 16px;
+  }
+  
+  .additional-links a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    
+    
+    .reset-container {
+        width: 100%;
+        max-width: 100%;
+    }    
+  
+    .additional-links a {
+        font-size: 14px;
+    }
+  }
+  
+  

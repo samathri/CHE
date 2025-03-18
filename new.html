@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Testimonial Block</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="title-with-lines">
+        <h1>What Our Clients Say</h1>
+        <div class="line2"></div>
+      </div>
+      <div class="testimonial-container" style="margin-top: 50px;">
+        <div class="testimonials" style="display: flex; justify-content: center; gap: 30px;" id="testimonials-container">
+          <div class="testimonial" data-index="0" style="width: 200px; height: 200px; overflow: hidden; opacity: 1; transform: scale(1.2); transition: all 0.3s ease; z-index: 1; cursor: pointer; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div style="font-weight: bold; font-size: 16px; color: #333; margin-bottom: 10px;">John Doe</div>
+            <div style="font-size: 12px; color: #555; margin-bottom: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id ullamcorper nisi.</div>
+            <div class="stars" style="color: #ffcc00; font-size: 18px;">★★★★★</div>
+          </div>
+          <div class="testimonial" data-index="1" style="width: 200px; height: 200px; overflow: hidden; opacity: 0.6; transform: scale(1); transition: all 0.3s ease; z-index: 0; cursor: pointer; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div style="font-weight: bold; font-size: 16px; color: #333; margin-bottom: 10px;">Jane Smith</div>
+            <div style="font-size: 12px; color: #555; margin-bottom: 15px;">Pellentesque nec augue at sapien fringilla euismod.</div>
+            <div class="stars" style="color: #ffcc00; font-size: 18px;">★★★★☆</div>
+          </div>
+          <div class="testimonial" data-index="2" style="width: 200px; height: 200px; overflow: hidden; opacity: 0.6; transform: scale(1); transition: all 0.3s ease; z-index: 0; cursor: pointer; text-align: center; border: 1px solid #ddd; padding: 15px; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div style="font-weight: bold; font-size: 16px; color: #333; margin-bottom: 10px;">Alex Johnson</div>
+            <div style="font-size: 12px; color: #555; margin-bottom: 15px;">Nam tincidunt leo at magna posuere, non posuere augue venenatis.</div>
+            <div class="stars" style="color: #ffcc00; font-size: 18px;">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="pagination" style="text-align: center; margin-top: 20px; display: flex; justify-content: center; gap: 8px;" id="pagination-container">
+          <span class="pagination-dot" data-index="0" style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #333; cursor: pointer;"></span>
+          <span class="pagination-dot" data-index="1" style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #ddd; cursor: pointer;"></span>
+          <span class="pagination-dot" data-index="2" style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #ddd; cursor: pointer;"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const testimonials = document.querySelectorAll('.testimonial');
+      const paginationDots = document.querySelectorAll('.pagination-dot');
+      let activeIndex = 0; // Start with the first card
+
+      function updateActiveCard(newIndex) {
+        activeIndex = newIndex;
+
+        // Update testimonial styles
+        testimonials.forEach((testimonial, index) => {
+          testimonial.style.opacity = index === activeIndex ? '1' : '0.6';
+          testimonial.style.transform = index === activeIndex ? 'scale(1.2)' : 'scale(1)';
+          testimonial.style.zIndex = index === activeIndex ? '1' : '0';
+        });
+
+        // Update pagination styles
+        paginationDots.forEach((dot, index) => {
+          dot.style.backgroundColor = index === activeIndex ? '#333' : '#ddd';
+        });
+      }
+
+      // Add click event to testimonials
+      testimonials.forEach((testimonial) => {
+        testimonial.addEventListener('click', () => {
+          const index = parseInt(testimonial.getAttribute('data-index'));
+          updateActiveCard(index);
+        });
+      });
+
+      // Add click event to pagination dots
+      paginationDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'));
+          updateActiveCard(index);
+        });
+      });
+
+      // Initialize the active card
+      updateActiveCard(activeIndex);
+    });
+  </script>
+</body>
+</html>
